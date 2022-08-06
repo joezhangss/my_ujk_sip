@@ -1,0 +1,55 @@
+group 'com.ujk.my_ujk_sip'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+//        flatDir {
+//            // 由于Library module中引用了 gif 库的 aar，在多 module 的情况下，
+//            // 其他的module编译会报错，所以需要在所有工程的repositories
+//            // 下把Library module中的libs目录添加到依赖关系中
+//            dirs file('libs')
+//        }
+    }
+}
+
+apply plugin: 'com.android.library'
+apply from: 'resolve_dependencies.gradle'
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+}
+
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+    api(name:'liblinphone-android-sdk', ext:'aar')
+    testImplementation 'junit:junit:4.12'
+}

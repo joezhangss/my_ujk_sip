@@ -1,0 +1,2 @@
+rootProject.name = 'my_ujk_sip'
+//project('my_ujk_sip').projectDir = new File('easylinphone')
