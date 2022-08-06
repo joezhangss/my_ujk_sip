@@ -1,5 +1,7 @@
 # my_ujk_sip
 
+需要在ios文件夹里添加Frameworks文件夹，再在里面加入PortSIPVoIPSDK.framework第三方插件方能使用
+
 需要在android下的build.gradle里添加
 rootProject.allprojects {
     repositories {
